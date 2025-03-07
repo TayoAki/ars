@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import { Navbar } from "@/components/Navbar"
 import { HeroSection } from "@/components/HeroSection"
 import { TestimonialSection } from "@/components/TestimonialSection"
+import { RobotScene } from "@/components/RobotScene"
 
 const Index = () => {
   return (
@@ -11,6 +12,7 @@ const Index = () => {
       
       <main>
         <HeroSection />
+        <RobotScene />
         <TestimonialSection />
       </main>
       
