@@ -2,6 +2,7 @@
 import { motion } from "framer-motion"
 import { Navbar } from "@/components/Navbar"
 import { HeroSection } from "@/components/HeroSection"
+import { TestimonialSection } from "@/components/TestimonialSection"
 
 const Index = () => {
   return (
@@ -10,6 +11,7 @@ const Index = () => {
       
       <main>
         <HeroSection />
+        <TestimonialSection />
       </main>
       
       <footer className="border-t border-amber-500/20 py-8 px-4">
