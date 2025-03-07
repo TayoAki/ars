@@ -14,7 +14,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Shield className="h-5 w-5 text-amber-500" />
-          <span className="text-xl font-semibold tracking-tight text-amber-400">Elite Security</span>
+          <span className="text-xl font-semibold tracking-tight text-amber-400">ARS Security</span>
         </div>
         
         <nav className="hidden md:flex space-x-8">

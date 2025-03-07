@@ -26,10 +26,10 @@ export function HeroSection() {
           PREMIUM PROTECTION SERVICES
         </span>
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6">
-          Elite <span className="text-gradient-gold">Security</span>
+          ARS <span className="text-gradient-gold">Security</span>
         </h1>
         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
-          Advanced security solutions with cutting-edge technology and professional expertise.
+          Professional team of experts providing uniformed and non-uniformed security for individuals and VIPs.
         </p>
       </motion.div>
 
@@ -50,12 +50,12 @@ export function HeroSection() {
               <div className="flex items-center gap-2 mb-4">
                 <Shield className="h-6 w-6 text-amber-500" />
                 <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-amber-300 to-amber-600">
-                  Advanced Security
+                  Expert Protection
                 </h2>
               </div>
               <p className="mt-4 text-amber-100/80 max-w-lg">
-                Our AI-enhanced security solutions provide cutting-edge protection with human expertise. 
-                We combine technology with professional personnel for unmatched security services.
+                We provide premium security and protection services with highly trained personnel.
+                Our team specializes in personal security for individuals and VIP protection.
               </p>
               <div className="flex items-center mt-6 space-x-4">
                 <Button variant="ghost" className="group text-amber-400 hover:text-amber-300 hover:bg-amber-900/30">
