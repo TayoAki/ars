@@ -2,7 +2,7 @@
 import { Card } from "@/components/ui/card"
 import { Spotlight } from "@/components/ui/spotlight"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Mail, User, Phone, Shield, Check } from "lucide-react"
+import { ArrowRight, Mail, User, Phone, Shield } from "lucide-react"
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { useToast } from "@/hooks/use-toast"
@@ -45,31 +45,6 @@ export function HeroSection() {
         className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background to-background/90 z-0"
       />
       
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="relative z-10 text-center mb-12 max-w-3xl"
-      >
-        <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full mb-6 tracking-wider">
-          PREMIUM PROTECTION SERVICES
-        </span>
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6">
-          ARS <span className="text-gradient-gold">Security</span>
-        </h1>
-        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8">
-          Professional team of experts providing uniformed and non-uniformed security for individuals and VIPs.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {["Elite Training", "24/7 Availability", "Personalized Service", "Discreet Protection"].map((feature) => (
-            <div key={feature} className="flex items-center gap-2 text-amber-400 bg-amber-950/40 px-4 py-2 rounded-full">
-              <Check className="h-4 w-4" />
-              <span className="text-sm font-medium">{feature}</span>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}

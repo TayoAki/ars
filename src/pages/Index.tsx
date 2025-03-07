@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar"
 import { HeroSection } from "@/components/HeroSection"
 import { TestimonialSection } from "@/components/TestimonialSection"
 import { RobotScene } from "@/components/RobotScene"
+import { FeaturesList } from "@/components/FeaturesList"
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
         <HeroSection />
         <RobotScene />
         <TestimonialSection />
+        <FeaturesList />
       </main>
       
       <footer className="border-t border-amber-500/20 py-8 px-4">
