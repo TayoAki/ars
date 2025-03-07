@@ -1,49 +1,35 @@
-
-import { SplineScene } from "@/components/ui/spline"
-import { Card } from "@/components/ui/card"
-import { Spotlight } from "@/components/ui/spotlight"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Shield, UserCheck } from "lucide-react"
-import { motion } from "framer-motion"
-
+import { SplineScene } from "@/components/ui/spline";
+import { Card } from "@/components/ui/card";
+import { Spotlight } from "@/components/ui/spotlight";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Shield, UserCheck } from "lucide-react";
+import { motion } from "framer-motion";
 export function HeroSection() {
-  return (
-    <section className="w-full min-h-screen flex flex-col items-center justify-center px-4 relative overflow-hidden">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background to-background/90 z-0"
-      />
+  return <section className="w-full min-h-screen flex flex-col items-center justify-center px-4 relative overflow-hidden">
+      <motion.div initial={{
+      opacity: 0,
+      y: 20
+    }} animate={{
+      opacity: 1,
+      y: 0
+    }} transition={{
+      duration: 0.5
+    }} className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background to-background/90 z-0" />
       
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="relative z-10 text-center mb-12 max-w-3xl"
-      >
-        <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full mb-6 tracking-wider">
-          PREMIUM PROTECTION SERVICES
-        </span>
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6">
-          Elite <span className="text-gradient-gold">Security</span>
-        </h1>
-        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
-          Advanced security solutions with cutting-edge technology and professional expertise.
-        </p>
-      </motion.div>
+      
 
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.4 }}
-        className="relative z-10 w-full max-w-5xl mx-auto"
-      >
+      <motion.div initial={{
+      opacity: 0,
+      y: 40
+    }} animate={{
+      opacity: 1,
+      y: 0
+    }} transition={{
+      duration: 0.7,
+      delay: 0.4
+    }} className="relative z-10 w-full max-w-5xl mx-auto">
         <Card className="w-full h-[500px] bg-black/[0.96] relative overflow-hidden backdrop-blur-sm border-[0.5px] border-amber-500/30 shadow-gold">
-          <Spotlight
-            className="-top-40 left-0 md:left-60 md:-top-20"
-            fill="gold"
-          />
+          <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="gold" />
           
           <div className="flex flex-col md:flex-row h-full">
             <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
@@ -70,21 +56,19 @@ export function HeroSection() {
             </div>
 
             <div className="flex-1 relative">
-              <SplineScene 
-                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                className="w-full h-full"
-              />
+              <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
             </div>
           </div>
         </Card>
       </motion.div>
       
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.7 }}
-        className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-10"
-      />
-    </section>
-  )
+      <motion.div initial={{
+      opacity: 0
+    }} animate={{
+      opacity: 1
+    }} transition={{
+      duration: 1,
+      delay: 0.7
+    }} className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-10" />
+    </section>;
 }
