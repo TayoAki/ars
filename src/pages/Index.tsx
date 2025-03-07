@@ -14,7 +14,7 @@ const Index = () => {
       
       <footer className="border-t border-amber-500/20 py-8 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-amber-400/70">&copy; 2023 ARS Security and Protections. All rights reserved.</p>
+          <p className="text-sm text-amber-400/70">&copy; 2025 ARS Security and Protections. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             {["Privacy Policy", "Terms of Service", "Contact Us"].map((item) => (
               <a 

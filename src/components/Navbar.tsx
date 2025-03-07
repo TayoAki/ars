@@ -18,7 +18,7 @@ export function Navbar() {
         </div>
         
         <nav className="hidden md:flex space-x-8">
-          {["Services", "Technology", "About", "Contact"].map((item) => (
+          {["Services", "About", "Testimonials"].map((item) => (
             <a 
               key={item} 
               href="#" 
@@ -30,11 +30,8 @@ export function Navbar() {
         </nav>
         
         <div>
-          <Button variant="ghost" size="sm" className="rounded-full text-amber-400 hover:bg-amber-900/30">
-            Client Login
-          </Button>
-          <Button size="sm" className="ml-2 rounded-full bg-amber-500 text-black hover:bg-amber-400">
-            Request a Quote
+          <Button size="sm" className="rounded-full bg-amber-500 text-black hover:bg-amber-400">
+            Get a Quote
           </Button>
         </div>
       </div>
