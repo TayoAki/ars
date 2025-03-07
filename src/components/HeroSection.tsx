@@ -23,13 +23,13 @@ export function HeroSection() {
         className="relative z-10 text-center mb-12 max-w-3xl"
       >
         <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full mb-6 tracking-wider">
-          PROFESSIONAL SECURITY SERVICES
+          PREMIUM PROTECTION SERVICES
         </span>
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6">
-          ARS Security <span className="text-primary">& Protection</span>
+          Elite <span className="text-gradient-gold">Security</span>
         </h1>
         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
-          Professional team of security experts providing uniformed and non-uniformed protection services for individuals and VIPs.
+          Advanced security solutions with cutting-edge technology and professional expertise.
         </p>
       </motion.div>
 
@@ -39,30 +39,30 @@ export function HeroSection() {
         transition={{ duration: 0.7, delay: 0.4 }}
         className="relative z-10 w-full max-w-5xl mx-auto"
       >
-        <Card className="w-full h-[500px] bg-black/[0.96] relative overflow-hidden backdrop-blur-sm border-[0.5px] border-white/10">
+        <Card className="w-full h-[500px] bg-black/[0.96] relative overflow-hidden backdrop-blur-sm border-[0.5px] border-amber-500/30 shadow-gold">
           <Spotlight
             className="-top-40 left-0 md:left-60 md:-top-20"
-            fill="white"
+            fill="gold"
           />
           
           <div className="flex flex-col md:flex-row h-full">
             <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-4">
-                <Shield className="h-6 w-6 text-primary" />
-                <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+                <Shield className="h-6 w-6 text-amber-500" />
+                <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-amber-300 to-amber-600">
                   Advanced Security
                 </h2>
               </div>
-              <p className="mt-4 text-neutral-300 max-w-lg">
+              <p className="mt-4 text-amber-100/80 max-w-lg">
                 Our AI-enhanced security solutions provide cutting-edge protection with human expertise. 
                 We combine technology with professional personnel for unmatched security services.
               </p>
               <div className="flex items-center mt-6 space-x-4">
-                <Button variant="ghost" className="group text-white hover:text-white hover:bg-white/10">
+                <Button variant="ghost" className="group text-amber-400 hover:text-amber-300 hover:bg-amber-900/30">
                   Our services
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
-                <Button variant="outline" className="text-white border-white/20 hover:bg-white/10">
+                <Button variant="outline" className="text-amber-400 border-amber-500/30 hover:bg-amber-900/30">
                   <UserCheck className="mr-2 h-4 w-4" />
                   Meet our team
                 </Button>

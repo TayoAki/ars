@@ -12,15 +12,15 @@ const Index = () => {
         <HeroSection />
       </main>
       
-      <footer className="border-t border-border/20 py-8 px-4">
+      <footer className="border-t border-amber-500/20 py-8 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-muted-foreground">&copy; 2023 ARS Security & Protection. All rights reserved.</p>
+          <p className="text-sm text-amber-400/70">&copy; 2023 Elite Security. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             {["Privacy Policy", "Terms of Service", "Contact Us"].map((item) => (
               <a 
                 key={item} 
                 href="#" 
-                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                className="text-xs text-amber-400/70 hover:text-amber-400 transition-colors"
               >
                 {item}
               </a>
