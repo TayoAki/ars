@@ -5,6 +5,7 @@ import { HeroSection } from "@/components/HeroSection"
 import { TestimonialSection } from "@/components/TestimonialSection"
 import { RobotScene } from "@/components/RobotScene"
 import { FeaturesList } from "@/components/FeaturesList"
+import { FeaturesSectionWithHoverEffects } from "@/components/ui/FeaturesSectionWithHoverEffects"
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <main>
         <FeaturesList />
         <RobotScene />
+        <FeaturesSectionWithHoverEffects />
         <TestimonialSection />
         <HeroSection />
       </main>
