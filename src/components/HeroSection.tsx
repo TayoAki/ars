@@ -3,7 +3,7 @@ import { SplineScene } from "@/components/ui/spline"
 import { Card } from "@/components/ui/card"
 import { Spotlight } from "@/components/ui/spotlight"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Shield, UserCheck } from "lucide-react"
 import { motion } from "framer-motion"
 
 export function HeroSection() {
@@ -23,13 +23,13 @@ export function HeroSection() {
         className="relative z-10 text-center mb-12 max-w-3xl"
       >
         <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full mb-6 tracking-wider">
-          REVOLUTIONARY DESIGN
+          PROFESSIONAL SECURITY SERVICES
         </span>
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6">
-          Experience the future of <span className="text-primary">design</span>
+          ARS Security <span className="text-primary">& Protection</span>
         </h1>
         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
-          Beautifully crafted interfaces with an obsessive attention to detail. Discover simplicity that speaks volumes.
+          Professional team of security experts providing uniformed and non-uniformed protection services for individuals and VIPs.
         </p>
       </motion.div>
 
@@ -47,17 +47,26 @@ export function HeroSection() {
           
           <div className="flex flex-col md:flex-row h-full">
             <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
-              <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
-                Interactive 3D
-              </h2>
+              <div className="flex items-center gap-2 mb-4">
+                <Shield className="h-6 w-6 text-primary" />
+                <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+                  Advanced Security
+                </h2>
+              </div>
               <p className="mt-4 text-neutral-300 max-w-lg">
-                Bring your UI to life with beautiful 3D scenes. Create immersive experiences 
-                that capture attention and enhance your design.
+                Our AI-enhanced security solutions provide cutting-edge protection with human expertise. 
+                We combine technology with professional personnel for unmatched security services.
               </p>
-              <Button variant="ghost" className="w-fit mt-6 group text-white hover:text-white hover:bg-white/10">
-                Explore technology
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
+              <div className="flex items-center mt-6 space-x-4">
+                <Button variant="ghost" className="group text-white hover:text-white hover:bg-white/10">
+                  Our services
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+                <Button variant="outline" className="text-white border-white/20 hover:bg-white/10">
+                  <UserCheck className="mr-2 h-4 w-4" />
+                  Meet our team
+                </Button>
+              </div>
             </div>
 
             <div className="flex-1 relative">

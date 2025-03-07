@@ -18,9 +18,9 @@ const Index = () => {
       
       <footer className="border-t border-border/20 py-8 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-muted-foreground">&copy; 2023 Design. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">&copy; 2023 ARS Security & Protection. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            {["Privacy", "Terms", "Contact"].map((item) => (
+            {["Privacy Policy", "Terms of Service", "Contact Us"].map((item) => (
               <a 
                 key={item} 
                 href="#" 
