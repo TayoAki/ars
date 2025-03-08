@@ -9,24 +9,16 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { Hero } from "@/components/ui/hero";
 
 export function FeaturesList() {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [name, setName] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -52,19 +44,6 @@ export function FeaturesList() {
     }, 1500);
   };
 
-  const handleContactSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // In a real app, you would send the form data to your backend
-    toast({
-      title: "Message sent",
-      description: "We'll get back to you as soon as possible.",
-      variant: "default"
-    });
-    setEmail("");
-    setMessage("");
-    setName("");
-  };
-
   return <section className="w-full py-24 px-4 bg-gradient-to-b from-background via-black/10 to-background relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -74,7 +53,7 @@ export function FeaturesList() {
       <Hero 
         title={<>Why Choose <span className="text-gradient-gold">ARS Security</span></>}
         subtitle="Professional team of experts providing uniformed and non-uniformed security for individuals and VIPs."
-        className="mb-24"
+        className="mb-10"
         titleClassName="text-4xl sm:text-6xl font-bold tracking-tight mb-8"
         subtitleClassName="text-muted-foreground text-lg max-w-2xl mx-auto mb-10"
       >
@@ -86,48 +65,49 @@ export function FeaturesList() {
             </div>
           ))}
         </div>
-
-        <div className="max-w-5xl mx-auto mt-16">
-          <Card className="w-full bg-black/[0.96] relative overflow-hidden backdrop-blur-sm border-[0.5px] border-amber-500/30 shadow-gold">
-            <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="gold" />
-            
-            <div className="flex flex-col md:flex-row h-full">
-              <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
-                <div className="flex items-center gap-2 mb-4">
-                  <Shield className="h-6 w-6 text-amber-500" />
-                  <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-amber-300 to-amber-600">
-                    Get Protected Today
-                  </h2>
-                </div>
-                <p className="mt-2 text-amber-100/80 max-w-lg mb-6">
-                  Request a free consultation with our security experts. Fill out the form and we'll contact you within 24 hours.
-                </p>
-                
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-amber-500/60" />
-                    <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Full Name" required className="w-full pl-10 pr-4 py-3 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-1 focus:ring-amber-500" />
-                  </div>
-                  
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-amber-500/60" />
-                    <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email Address" required className="w-full pl-10 pr-4 py-3 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-1 focus:ring-amber-500" />
-                  </div>
-                  
-                  <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-amber-500/60" />
-                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone Number" className="w-full pl-10 pr-4 py-3 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-1 focus:ring-amber-500" />
-                  </div>
-                  
-                  <Button type="submit" disabled={isSubmitting} className="w-full bg-amber-500 text-black hover:bg-amber-400 font-medium py-6 rounded-lg transition-all duration-200 flex items-center justify-center">
-                    {isSubmitting ? <span className="loader mr-2"></span> : <ArrowRight className="mr-2 h-5 w-5" />}
-                    {isSubmitting ? "Processing..." : "Request Consultation"}
-                  </Button>
-                </form>
-              </div>
-            </div>
-          </Card>
-        </div>
       </Hero>
+
+      {/* Consultation Form Card */}
+      <div className="max-w-5xl mx-auto mt-16">
+        <Card className="w-full bg-black/[0.96] relative overflow-hidden backdrop-blur-sm border-[0.5px] border-amber-500/30 shadow-gold">
+          <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="gold" />
+          
+          <div className="flex flex-col md:flex-row h-full">
+            <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
+              <div className="flex items-center gap-2 mb-4">
+                <Shield className="h-6 w-6 text-amber-500" />
+                <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-amber-300 to-amber-600">
+                  Get Protected Today
+                </h2>
+              </div>
+              <p className="mt-2 text-amber-100/80 max-w-lg mb-6">
+                Request a free consultation with our security experts. Fill out the form and we'll contact you within 24 hours.
+              </p>
+              
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-amber-500/60" />
+                  <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Full Name" required className="w-full pl-10 pr-4 py-3 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-1 focus:ring-amber-500" />
+                </div>
+                
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-amber-500/60" />
+                  <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email Address" required className="w-full pl-10 pr-4 py-3 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-1 focus:ring-amber-500" />
+                </div>
+                
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-amber-500/60" />
+                  <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone Number" className="w-full pl-10 pr-4 py-3 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-1 focus:ring-amber-500" />
+                </div>
+                
+                <Button type="submit" disabled={isSubmitting} className="w-full bg-amber-500 text-black hover:bg-amber-400 font-medium py-6 rounded-lg transition-all duration-200 flex items-center justify-center">
+                  {isSubmitting ? <span className="loader mr-2"></span> : <ArrowRight className="mr-2 h-5 w-5" />}
+                  {isSubmitting ? "Processing..." : "Request Consultation"}
+                </Button>
+              </form>
+            </div>
+          </div>
+        </Card>
+      </div>
     </section>;
 }
