@@ -64,9 +64,9 @@ export function FeaturesList() {
         titleClassName="text-4xl sm:text-6xl font-bold tracking-tight mb-8"
         subtitleClassName="text-muted-foreground text-lg max-w-2xl mx-auto mb-10"
       >
-        <div className="flex flex-wrap justify-center gap-4 mt-8 md:block">
+        <div className="flex flex-wrap justify-center gap-4 mb-12 md:mb-0">
           {featureItems.map((feature, index) => (
-            <div key={feature.title} className="flex flex-col items-center text-center gap-2 mb-12 w-full">
+            <div key={feature.title} className="flex flex-col items-center text-center gap-2 mb-12 w-full sm:w-auto">
               <div className="bg-amber-500/20 p-4 rounded-full mb-2 border border-amber-500/30">
                 <feature.icon className="h-8 w-8 text-amber-500" />
               </div>
@@ -76,27 +76,27 @@ export function FeaturesList() {
         </div>
       </Hero>
 
-      {/* Consultation Form Card - Only visible on medium screens and up */}
-      <div className="max-w-4xl mx-auto mt-16 hidden md:block">
+      {/* Consultation Form Card - Visible on all screens now */}
+      <div className="max-w-4xl mx-auto mt-8">
         <Card className="w-full bg-black/[0.96] relative overflow-hidden backdrop-blur-sm border-[0.5px] border-amber-500/30 shadow-gold">
           <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="gold" />
           
           <div className="flex flex-col md:flex-row h-full">
-            <div className="w-full p-8 md:p-10 lg:p-12 relative z-10 flex flex-col justify-center items-center text-center backdrop-blur-sm bg-black/50 rounded-lg border-l border-amber-500/10">
+            <div className="w-full p-6 md:p-10 lg:p-12 relative z-10 flex flex-col justify-center items-center text-center backdrop-blur-sm bg-black/50 rounded-lg border-l border-amber-500/10">
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-amber-500/20 p-2.5 rounded-full">
                   <Shield className="h-6 w-6 text-amber-500" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-amber-300 to-amber-600">
+                <h2 className="text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-amber-300 to-amber-600">
                   Get Protected Today
                 </h2>
               </div>
               
-              <p className="mt-2 text-amber-100/80 max-w-xl mb-8 text-base md:text-lg">
+              <p className="mt-2 text-amber-100/80 max-w-xl mb-6 text-sm md:text-lg">
                 Request a free consultation with our security experts. Fill out the form and we'll contact you within 24 hours.
               </p>
               
-              <form onSubmit={handleSubmit} className="space-y-5 max-w-xl w-full">
+              <form onSubmit={handleSubmit} className="space-y-4 max-w-xl w-full">
                 <div className="relative group">
                   <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-amber-500/60 transition-all group-hover:text-amber-500/90" />
                   <input 
@@ -106,7 +106,7 @@ export function FeaturesList() {
                     onChange={handleChange} 
                     placeholder="Full Name" 
                     required 
-                    className="w-full pl-10 pr-4 py-3.5 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all" 
+                    className="w-full pl-10 pr-4 py-3 md:py-3.5 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all" 
                   />
                 </div>
                 
@@ -119,7 +119,7 @@ export function FeaturesList() {
                     onChange={handleChange} 
                     placeholder="Email Address" 
                     required 
-                    className="w-full pl-10 pr-4 py-3.5 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all" 
+                    className="w-full pl-10 pr-4 py-3 md:py-3.5 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all" 
                   />
                 </div>
                 
@@ -131,14 +131,14 @@ export function FeaturesList() {
                     value={formData.phone} 
                     onChange={handleChange} 
                     placeholder="Phone Number" 
-                    className="w-full pl-10 pr-4 py-3.5 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all" 
+                    className="w-full pl-10 pr-4 py-3 md:py-3.5 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all" 
                   />
                 </div>
                 
                 <Button 
                   type="submit" 
                   disabled={isSubmitting} 
-                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-black hover:from-amber-400 hover:to-amber-500 font-medium py-6 rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/20 items-center justify-center mt-8"
+                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-black hover:from-amber-400 hover:to-amber-500 font-medium py-4 md:py-6 rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/20 items-center justify-center mt-6"
                 >
                   {isSubmitting ? (
                     <>

@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -32,7 +33,7 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(({
   actionsClassName,
   ...props
 }, ref) => {
-  return <section ref={ref} className={cn("relative z-0 flex min-h-[80vh] w-full flex-col items-center justify-center overflow-hidden rounded-md bg-background", className)} {...props}>
+  return <section ref={ref} className={cn("relative z-0 flex min-h-[50vh] md:min-h-[80vh] w-full flex-col items-center justify-center overflow-hidden rounded-md bg-background", className)} {...props}>
         {gradient && <div className="absolute top-0 isolate z-0 flex w-screen flex-1 items-start justify-center">
             {blur && <div className="absolute top-0 z-50 h-48 w-screen bg-transparent opacity-10 backdrop-blur-md" />}
 
@@ -114,12 +115,12 @@ const Hero = React.forwardRef<HTMLElement, HeroProps>(({
     }} whileInView={{
       y: 0,
       opacity: 1
-    }} className="relative z-50 container flex justify-center flex-1 flex-col md:px-10 gap-4 -translate-y-20 px-[20px]">
+    }} className="relative z-50 container flex justify-center flex-1 flex-col md:px-10 gap-4 py-16 md:-translate-y-20 px-[20px]">
           <div className="flex flex-col items-center text-center space-y-4">
-            <h1 className={cn("text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight", titleClassName)}>
+            <h1 className={cn("text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight", titleClassName)}>
               {title}
             </h1>
-            {subtitle && <p className={cn("text-xl text-muted-foreground", subtitleClassName)}>
+            {subtitle && <p className={cn("text-lg md:text-xl text-muted-foreground", subtitleClassName)}>
                 {subtitle}
               </p>}
             {actions && actions.length > 0 && <div className={cn("flex gap-4", actionsClassName)}>
