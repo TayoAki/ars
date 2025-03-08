@@ -6,6 +6,7 @@ import { TestimonialSection } from "@/components/TestimonialSection"
 import { RobotScene } from "@/components/RobotScene"
 import { FeaturesList } from "@/components/FeaturesList"
 import { FeaturesSectionWithHoverEffects } from "@/components/ui/FeaturesSectionWithHoverEffects"
+import { EliteProtectionText } from "@/components/EliteProtectionText"
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       
       <main>
         <FeaturesList />
+        <EliteProtectionText />
         <RobotScene />
         <FeaturesSectionWithHoverEffects />
         <TestimonialSection />
