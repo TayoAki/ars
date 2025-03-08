@@ -129,7 +129,7 @@ export function FeaturesList() {
                 <Button 
                   type="submit" 
                   disabled={isSubmitting} 
-                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-black hover:from-amber-400 hover:to-amber-500 font-medium py-6 rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/20 flex items-center justify-center mt-8"
+                  className="hidden md:flex w-full bg-gradient-to-r from-amber-500 to-amber-600 text-black hover:from-amber-400 hover:to-amber-500 font-medium py-6 rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/20 items-center justify-center mt-8"
                 >
                   {isSubmitting ? (
                     <>
