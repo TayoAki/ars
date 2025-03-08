@@ -1,6 +1,7 @@
 
 import { motion } from "framer-motion"
-import { Shield, Clock, Lock } from "lucide-react"
+import { Shield, Clock, Lock, Sparkles } from "lucide-react"
+import { SparklesCore } from "./ui/sparkles"
 
 export function EliteProtectionText() {
   return (
@@ -11,9 +12,25 @@ export function EliteProtectionText() {
         transition={{ duration: 0.7, delay: 0.2 }}
         className="max-w-4xl mx-auto text-center"
       >
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-gradient-gold">
-          Elite Protection for Those Who Demand Excellence
-        </h2>
+        <div className="relative">
+          {/* Sparkles effect */}
+          <div className="absolute inset-0 h-full">
+            <SparklesCore
+              background="transparent"
+              minSize={0.4}
+              maxSize={1.5}
+              particleDensity={70}
+              className="w-full h-full"
+              particleColor="#FEF7CD"
+              speed={0.8}
+            />
+          </div>
+          
+          {/* Title with relative positioning to appear above particles */}
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-gradient-gold relative z-10">
+            Elite Protection for Those Who Demand Excellence
+          </h2>
+        </div>
         
         <p className="text-lg md:text-xl text-amber-100/80 mb-10 max-w-3xl mx-auto">
           Professional security services tailored for executives, public figures, and high-profile clients, 
