@@ -68,12 +68,12 @@ export function FeaturesList() {
       </Hero>
 
       {/* Consultation Form Card */}
-      <div className="max-w-5xl mx-auto mt-16">
+      <div className="max-w-4xl mx-auto mt-16">
         <Card className="w-full bg-black/[0.96] relative overflow-hidden backdrop-blur-sm border-[0.5px] border-amber-500/30 shadow-gold">
           <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="gold" />
           
           <div className="flex flex-col md:flex-row h-full">
-            <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
+            <div className="flex-1 p-8 relative z-10 flex flex-col justify-center max-w-2xl mx-auto">
               <div className="flex items-center gap-2 mb-4">
                 <Shield className="h-6 w-6 text-amber-500" />
                 <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-amber-300 to-amber-600">
