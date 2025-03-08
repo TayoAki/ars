@@ -70,7 +70,7 @@ export function Navbar() {
           })}
         </nav>
         
-        <div>
+        <div className="hidden md:block">
           <Button size="sm" className="rounded-full bg-amber-500 text-black hover:bg-amber-400">
             Get a Quote
           </Button>
@@ -81,7 +81,7 @@ export function Navbar() {
       <div className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
         <div className="relative">
           <div className={cn(
-            "flex p-2 gap-2 bg-black/20 backdrop-blur-lg rounded-full",
+            "flex p-2 gap-4 bg-black/80 backdrop-blur-lg rounded-full",
             "border border-amber-500/30 shadow-lg"
           )}>
             {navItems.map((item) => {
@@ -91,13 +91,14 @@ export function Navbar() {
                 <button
                   key={item.name}
                   className={cn(
-                    "relative rounded-full p-2 text-amber-200/70 hover:text-amber-200 transition-colors",
+                    "relative rounded-full p-2.5 text-amber-200/70 hover:text-amber-200 transition-colors",
                     isActive && "text-amber-400"
                   )}
                   onClick={() => setActiveTab(item.name)}
                 >
-                  <span className="flex items-center gap-2">
+                  <span className="flex flex-col items-center gap-1">
                     <item.icon className="h-5 w-5" />
+                    <span className="text-xs font-medium">{item.name}</span>
                   </span>
                   
                   {isActive && (
