@@ -7,12 +7,18 @@ import { motion } from 'framer-motion';
 export function TestimonialCard({ handleShuffle, testimonial, position, id, author }: {
   handleShuffle: () => void;
   testimonial: string;
-  position: "front" | "middle" | "back";
+  position: "front" | "middle" | "back" | "hidden";
   id: number;
   author: string;
 }) {
   const dragRef = React.useRef(0);
   const isFront = position === "front";
+  const isHidden = position === "hidden";
+
+  // Return null for hidden cards to avoid rendering them
+  if (isHidden) {
+    return null;
+  }
 
   return (
     <motion.div
@@ -21,7 +27,8 @@ export function TestimonialCard({ handleShuffle, testimonial, position, id, auth
       }}
       animate={{
         rotate: position === "front" ? "-6deg" : position === "middle" ? "0deg" : "6deg",
-        x: position === "front" ? "0%" : position === "middle" ? "33%" : "66%"
+        x: position === "front" ? "0%" : position === "middle" ? "33%" : "66%",
+        opacity: isHidden ? 0 : 1
       }}
       drag={true}
       dragElastic={0.35}
@@ -51,7 +58,7 @@ export function TestimonialCard({ handleShuffle, testimonial, position, id, auth
       }`}
     >
       <img
-        src={`https://i.pravatar.cc/128?img=${id}`}
+        src={`https://i.pravatar.cc/128?img=${id + 10}`}
         alt={`Avatar of ${author}`}
         className="pointer-events-none mx-auto h-32 w-32 rounded-full border-2 border-amber-500/40 bg-slate-200 object-cover"
       />
