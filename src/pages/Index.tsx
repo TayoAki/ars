@@ -1,7 +1,6 @@
 
 import { motion } from "framer-motion"
 import { Navbar } from "@/components/Navbar"
-import { HeroSection } from "@/components/HeroSection"
 import { TestimonialSection } from "@/components/TestimonialSection"
 import { RobotScene } from "@/components/RobotScene"
 import { FeaturesList } from "@/components/FeaturesList"
@@ -19,7 +18,6 @@ const Index = () => {
         <FeaturesSectionWithHoverEffects />
         <TestimonialSection />
         <FeaturesList />
-        <HeroSection />
       </main>
       
       <footer className="border-t border-amber-500/20 py-8 px-4">
