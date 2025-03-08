@@ -14,7 +14,7 @@ export const LampContainer = ({
   return (
     <div
       className={cn(
-        "relative flex min-h-[400px] flex-col items-center justify-center overflow-hidden rounded-md z-0",
+        "relative flex min-h-[400px] flex-col items-center justify-center overflow-hidden rounded-xl z-0",
         className
       )}
     >
@@ -53,10 +53,10 @@ export const LampContainer = ({
         </motion.div>
         <div className="absolute top-1/2 h-48 w-full translate-y-12 scale-x-150 bg-background blur-2xl"></div>
         <div className="absolute top-1/2 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md"></div>
-        <div className="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full bg-amber-500 opacity-50 blur-3xl"></div>
+        <div className="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full bg-amber-500 opacity-60 blur-3xl"></div>
         <motion.div
           initial={{ width: "8rem" }}
-          whileInView={{ width: "16rem" }}
+          whileInView={{ width: "18rem" }}
           transition={{
             delay: 0.3,
             duration: 0.8,
@@ -66,19 +66,19 @@ export const LampContainer = ({
         ></motion.div>
         <motion.div
           initial={{ width: "15rem" }}
-          whileInView={{ width: "30rem" }}
+          whileInView={{ width: "35rem" }}
           transition={{
             delay: 0.3,
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="absolute inset-auto z-50 h-0.5 w-[30rem] -translate-y-[7rem] bg-amber-400"
+          className="absolute inset-auto z-50 h-0.5 w-[35rem] -translate-y-[7rem] bg-amber-400 shadow-lg shadow-amber-500/50"
         ></motion.div>
 
         <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[12.5rem] bg-background"></div>
       </div>
 
-      <div className="relative z-50 flex -translate-y-40 flex-col items-center px-5">
+      <div className="relative z-50 flex -translate-y-36 flex-col items-center px-5">
         {children}
       </div>
     </div>
