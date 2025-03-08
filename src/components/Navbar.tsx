@@ -77,12 +77,12 @@ export function Navbar() {
         </div>
       </div>
       
-      {/* Mobile Navigation - Two Rows */}
-      <div className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
-        <div className="relative">
+      {/* Mobile Navigation - Horizontal Scroll */}
+      <div className="md:hidden fixed bottom-4 left-0 right-0 z-50 px-4">
+        <div className="relative mx-auto max-w-[350px]">
           <div className={cn(
-            "grid grid-cols-2 p-3 gap-3 bg-black/90 backdrop-blur-lg rounded-xl",
-            "border border-amber-500/30 shadow-lg w-[180px]"
+            "flex p-3 overflow-x-auto scrollbar-none bg-black/90 backdrop-blur-lg rounded-xl",
+            "border border-amber-500/30 shadow-lg"
           )}>
             {navItems.map((item) => {
               const isActive = activeTab === item.name;
@@ -91,14 +91,14 @@ export function Navbar() {
                 <button
                   key={item.name}
                   className={cn(
-                    "relative rounded-lg p-2 text-amber-200/70 hover:text-amber-200 transition-colors",
+                    "relative flex-shrink-0 rounded-lg p-2 mx-1.5 text-amber-200/70 hover:text-amber-200 transition-colors",
                     isActive && "text-amber-400"
                   )}
                   onClick={() => setActiveTab(item.name)}
                 >
-                  <span className="flex flex-col items-center gap-1.5">
+                  <span className="flex flex-col items-center gap-1.5 w-16">
                     <item.icon className="h-5 w-5" />
-                    <span className="text-xs font-medium">{item.name}</span>
+                    <span className="text-xs font-medium whitespace-nowrap">{item.name}</span>
                   </span>
                   
                   {isActive && (
