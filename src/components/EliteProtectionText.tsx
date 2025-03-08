@@ -4,7 +4,7 @@ import { Shield, Clock, Lock } from "lucide-react"
 
 export function EliteProtectionText() {
   return (
-    <section className="w-full py-12 px-4 bg-gradient-to-b from-black/50 to-transparent">
+    <section className="w-full py-20 md:py-24 px-4 bg-gradient-to-b from-black/50 to-transparent mt-16 sm:mt-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
