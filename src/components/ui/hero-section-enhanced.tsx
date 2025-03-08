@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -10,12 +11,14 @@ import { useState, useEffect } from "react";
 import { Icons } from "@/components/ui/icons";
 import { motion } from "framer-motion";
 import { SparklesCore } from "@/components/ui/sparkles";
+
 interface HeroAction {
   text: string;
   href: string;
   icon?: React.ReactNode;
   variant?: "default" | "glow";
 }
+
 interface HeroProps {
   badge?: {
     text: string;
@@ -33,6 +36,7 @@ interface HeroProps {
     alt: string;
   };
 }
+
 export function HeroSectionEnhanced({
   badge,
   title,
@@ -50,23 +54,38 @@ export function HeroSectionEnhanced({
     const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     setTheme(isDark ? "dark" : "light");
   }, []);
-  return <section className={cn("bg-background text-foreground py-12 sm:py-24 md:py-32 px-4 fade-bottom overflow-hidden pb-0")}>
+
+  return (
+    <section className={cn("bg-background text-foreground py-12 sm:py-24 md:py-32 px-4 fade-bottom overflow-hidden pb-0")}>
       <div className="mx-auto flex max-w-6xl flex-col gap-12 pt-16 sm:gap-24">
         {/* Elite Protection Heading */}
-        <motion.div initial={{
-        opacity: 0,
-        y: 20
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        duration: 0.7,
-        delay: 0.2
-      }} className="max-w-4xl mx-auto text-center">
+        <motion.div 
+          initial={{
+            opacity: 0,
+            y: 20
+          }} 
+          animate={{
+            opacity: 1,
+            y: 0
+          }} 
+          transition={{
+            duration: 0.7,
+            delay: 0.2
+          }} 
+          className="max-w-4xl mx-auto text-center"
+        >
           <div className="relative">
             {/* Sparkles effect */}
             <div className="absolute inset-0 h-full">
-              <SparklesCore background="transparent" minSize={0.4} maxSize={1.5} particleDensity={70} className="w-full h-full" particleColor="#FEF7CD" speed={0.8} />
+              <SparklesCore 
+                background="transparent" 
+                minSize={0.4} 
+                maxSize={1.5} 
+                particleDensity={70} 
+                className="w-full h-full" 
+                particleColor="#FEF7CD" 
+                speed={0.8} 
+              />
             </div>
             
             {/* Title with relative positioning to appear above particles */}
@@ -81,23 +100,32 @@ export function HeroSectionEnhanced({
           </p>
           
           <div className="flex flex-col md:flex-row justify-center gap-5 md:gap-12 mb-20">
-            <motion.div whileHover={{
-            scale: 1.05
-          }} className="flex flex-col items-center">
+            <motion.div 
+              whileHover={{
+                scale: 1.05
+              }} 
+              className="flex flex-col items-center"
+            >
               <Shield className="h-8 w-8 text-amber-500 mb-2" />
               <span className="text-amber-300 font-medium">Premium Protection</span>
             </motion.div>
             
-            <motion.div whileHover={{
-            scale: 1.05
-          }} className="flex flex-col items-center">
+            <motion.div 
+              whileHover={{
+                scale: 1.05
+              }} 
+              className="flex flex-col items-center"
+            >
               <Clock className="h-8 w-8 text-amber-500 mb-2" />
               <span className="text-amber-300 font-medium">24/7 Availability</span>
             </motion.div>
             
-            <motion.div whileHover={{
-            scale: 1.05
-          }} className="flex flex-col items-center">
+            <motion.div 
+              whileHover={{
+                scale: 1.05
+              }} 
+              className="flex flex-col items-center"
+            >
               <Lock className="h-8 w-8 text-amber-500 mb-2" />
               <span className="text-amber-300 font-medium">Unmatched Discretion</span>
             </motion.div>
@@ -106,16 +134,53 @@ export function HeroSectionEnhanced({
 
         <div className="flex flex-col items-center gap-6 text-center sm:gap-12">
           {/* Badge */}
-          {badge}
+          {badge && (
+            <Badge variant="hero" className="gap-2">
+              {badge.text}
+              <a
+                href={badge.action.href}
+                className="text-primary hover:text-primary underline-offset-4 hover:underline"
+              >
+                {badge.action.text}
+              </a>
+            </Badge>
+          )}
 
           {/* Title */}
-          
+          <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
+            {title}
+          </h1>
 
           {/* Description */}
-          
+          <p className="max-w-[42rem] text-muted-foreground sm:text-xl">
+            {description}
+          </p>
 
           {/* Actions */}
-          
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            {actions.map((action, i) => {
+              return action.variant === "glow" ? (
+                <Button
+                  key={i}
+                  variant="ghost"
+                  className="bg-transparent dark:text-accent-foreground hover:bg-black/10"
+                  asChild
+                >
+                  <a href={action.href}>
+                    {action.text}
+                    {action.icon || <ArrowRightIcon className="ml-2 h-4 w-4" />}
+                  </a>
+                </Button>
+              ) : (
+                <Button key={i} asChild>
+                  <a href={action.href}>
+                    {action.text}
+                    {action.icon}
+                  </a>
+                </Button>
+              );
+            })}
+          </div>
 
           {/* Image with Glow */}
           <div className="relative pt-12">
@@ -128,29 +193,41 @@ export function HeroSectionEnhanced({
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
 
 // Demo component to showcase the usage
 export function HeroSectionEnhancedDemo() {
-  return <HeroSectionEnhanced badge={{
-    text: "Advanced security solutions",
-    action: {
-      text: "Learn about our approach",
-      href: "/services"
-    }
-  }} title="Next-gen security for modern threats" description="Enterprise-grade protection systems built with cutting-edge technology. Safeguard your business with our comprehensive security solutions." actions={[{
-    text: "Get a Free Assessment",
-    href: "/contact",
-    variant: "default"
-  }, {
-    text: "Our Technologies",
-    href: "/technologies",
-    variant: "glow",
-    icon: <Icons.gitHub className="h-5 w-5" />
-  }]} image={{
-    light: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=1248&h=765&auto=format&fit=crop",
-    dark: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1248&h=765&auto=format&fit=crop",
-    alt: "Advanced Security Systems"
-  }} />;
+  return (
+    <HeroSectionEnhanced 
+      badge={{
+        text: "Advanced security solutions",
+        action: {
+          text: "Learn about our approach",
+          href: "/services"
+        }
+      }} 
+      title="Next-gen security for modern threats" 
+      description="Enterprise-grade protection systems built with cutting-edge technology. Safeguard your business with our comprehensive security solutions." 
+      actions={[
+        {
+          text: "Get a Free Assessment",
+          href: "/contact",
+          variant: "default"
+        }, 
+        {
+          text: "Our Technologies",
+          href: "/technologies",
+          variant: "glow",
+          icon: <Icons.gitHub className="h-5 w-5" />
+        }
+      ]} 
+      image={{
+        light: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=1248&h=765&auto=format&fit=crop",
+        dark: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1248&h=765&auto=format&fit=crop",
+        alt: "Advanced Security Systems"
+      }} 
+    />
+  );
 }
