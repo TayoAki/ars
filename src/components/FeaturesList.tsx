@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Check, Send, ArrowRight, Mail, User, Phone, Shield } from "lucide-react";
+import { Check, Send, ArrowRight, Mail, User, Phone, Shield, Clock, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -44,6 +44,13 @@ export function FeaturesList() {
     }, 1500);
   };
 
+  // Feature items to display on mobile
+  const featureItems = [
+    { icon: Shield, title: "Premium Protection" },
+    { icon: Clock, title: "24/7 Availability" },
+    { icon: Lock, title: "Unmatched Discretion" }
+  ];
+
   return <section className="w-full py-24 px-4 bg-gradient-to-b from-background via-black/10 to-background relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -51,24 +58,26 @@ export function FeaturesList() {
       </div>
 
       <Hero 
-        title={<>Why Choose <span className="text-gradient-gold">ARS Security</span></>}
-        subtitle="Professional team of experts providing uniformed and non-uniformed security for individuals and VIPs."
+        title={<>Elite Protection for <span className="text-gradient-gold">Those Who Demand Excellence</span></>}
+        subtitle="Professional security services tailored for executives, public figures, and high-profile clients, delivered with discretion and precision."
         className="mb-10"
         titleClassName="text-4xl sm:text-6xl font-bold tracking-tight mb-8"
         subtitleClassName="text-muted-foreground text-lg max-w-2xl mx-auto mb-10"
       >
-        <div className="flex flex-wrap justify-center gap-4 mt-8">
-          {["Elite Training", "24/7 Availability", "Personalized Service", "Discreet Protection"].map(feature => (
-            <div key={feature} className="flex items-center gap-2 text-amber-400 bg-amber-950/50 backdrop-blur-sm px-5 py-2.5 rounded-full border border-amber-500/20 shadow-lg shadow-amber-900/10 transition-all hover:scale-105 hover:bg-amber-950/60">
-              <Check className="h-4 w-4" />
-              <span className="text-sm font-medium">{feature}</span>
+        <div className="flex flex-wrap justify-center gap-4 mt-8 md:block">
+          {featureItems.map((feature, index) => (
+            <div key={feature.title} className="flex flex-col items-center text-center gap-2 mb-12 w-full">
+              <div className="bg-amber-500/20 p-4 rounded-full mb-2 border border-amber-500/30">
+                <feature.icon className="h-8 w-8 text-amber-500" />
+              </div>
+              <span className="text-xl font-semibold text-amber-400">{feature.title}</span>
             </div>
           ))}
         </div>
       </Hero>
 
-      {/* Consultation Form Card */}
-      <div className="max-w-4xl mx-auto mt-16">
+      {/* Consultation Form Card - Only visible on medium screens and up */}
+      <div className="max-w-4xl mx-auto mt-16 hidden md:block">
         <Card className="w-full bg-black/[0.96] relative overflow-hidden backdrop-blur-sm border-[0.5px] border-amber-500/30 shadow-gold">
           <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="gold" />
           
@@ -129,7 +138,7 @@ export function FeaturesList() {
                 <Button 
                   type="submit" 
                   disabled={isSubmitting} 
-                  className="hidden md:flex w-full bg-gradient-to-r from-amber-500 to-amber-600 text-black hover:from-amber-400 hover:to-amber-500 font-medium py-6 rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/20 items-center justify-center mt-8"
+                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-black hover:from-amber-400 hover:to-amber-500 font-medium py-6 rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/20 items-center justify-center mt-8"
                 >
                   {isSubmitting ? (
                     <>
