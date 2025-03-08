@@ -14,11 +14,11 @@ const Index = () => {
       <Navbar />
       
       <main>
-        <FeaturesList />
         <EliteProtectionText />
         <RobotScene />
         <FeaturesSectionWithHoverEffects />
         <TestimonialSection />
+        <FeaturesList />
         <HeroSection />
       </main>
       
