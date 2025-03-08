@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button"
-import { Shield, Home, User, FileText } from "lucide-react"
+import { Home, User, FileText, Shield } from "lucide-react"
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
@@ -29,7 +29,11 @@ export function Navbar() {
     <div className="fixed top-0 left-0 right-0 z-40 px-4 py-4 backdrop-blur-md bg-background/60 border-b border-amber-500/20">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Shield className="h-5 w-5 text-amber-500" />
+          <img 
+            src="/lovable-uploads/cdbf749e-2c2c-437a-a78e-d8b525f0b6ee.png" 
+            alt="ARS Security Logo" 
+            className="h-8 w-auto"
+          />
           <span className="text-xl font-semibold tracking-tight text-amber-400">ARS Security</span>
         </div>
         
