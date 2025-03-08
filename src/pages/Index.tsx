@@ -14,10 +14,10 @@ const Index = () => {
       
       <main>
         <EliteProtectionText />
-        <RobotScene />
-        <FeaturesList />
-        <FeaturesSectionWithHoverEffects />
         <TestimonialSection />
+        <FeaturesSectionWithHoverEffects />
+        <FeaturesList />
+        <RobotScene />
       </main>
       
       <footer className="border-t border-amber-500/20 py-8 px-4">
