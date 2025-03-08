@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { TestimonialCard } from "@/components/ui/testimonial-card";
 import { SatisfactionCard } from "@/components/ui/satisfaction-card";
+
 export function TestimonialSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const testimonials = [{
@@ -29,9 +31,11 @@ export function TestimonialSection() {
     text: "ARS Security customized a protection plan that perfectly addressed our unique needs. Their expertise and professionalism are unmatched.",
     author: "Amanda Peterson, Estate Manager"
   }];
+  
   const handleShuffle = () => {
     setCurrentIndex(prevIndex => (prevIndex + 1) % testimonials.length);
   };
+  
   const getPosition = (index: number): "front" | "middle" | "back" | "hidden" => {
     const position = (index - currentIndex) % testimonials.length;
     if (position < 0) return "hidden";
@@ -40,9 +44,11 @@ export function TestimonialSection() {
     if (position === 2) return "back";
     return "hidden";
   };
-  return <section className="w-full py-20 px-4 bg-black/10 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+  
+  return (
+    <section className="w-full py-0 pt-0 mt-0 px-4 bg-black/10 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto pt-0 mt-0">
+        <div className="text-center mb-10 pt-10">
           <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full mb-6 tracking-wider">TESTIMONIALS</span>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
             What Our <span className="text-gradient-gold">Clients</span> Say
@@ -52,7 +58,30 @@ export function TestimonialSection() {
           </p>
         </div>
         
-        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start py-8">
+          {/* Testimonial Cards */}
+          <div className="relative h-[500px] w-full flex items-center justify-center">
+            {testimonials.map((testimonial, index) => (
+              <TestimonialCard
+                key={testimonial.id}
+                handleShuffle={handleShuffle}
+                testimonial={testimonial.text}
+                position={getPosition(index)}
+                id={testimonial.id}
+                author={testimonial.author}
+              />
+            ))}
+            <p className="absolute bottom-0 text-sm text-amber-400/70 mt-4">
+              Swipe or drag left to see more testimonials
+            </p>
+          </div>
+          
+          {/* Satisfaction Card */}
+          <div className="h-full">
+            <SatisfactionCard />
+          </div>
+        </div>
       </div>
-    </section>;
+    </section>
+  );
 }
