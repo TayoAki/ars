@@ -14,9 +14,9 @@ const Index = () => {
       
       <main>
         <HeroSectionElite />
+        <FeaturesList />
         <TestimonialSection />
         <FeaturesSectionWithHoverEffects />
-        <FeaturesList />
         <RobotScene />
       </main>
       
