@@ -1,106 +1,92 @@
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { TestimonialCard } from "@/components/ui/testimonial-card";
-import { Quote } from "lucide-react";
-
-const testimonials = [
-  {
-    id: 1,
-    testimonial: "The professionalism of ARS Security is unmatched. They provided our executives with discreet, top-tier protection during our international conference.",
-    author: "James W. - CEO @ Global Tech Innovations"
-  },
-  {
-    id: 2,
-    testimonial: "I feel completely safe with ARS Security's team. Their attention to detail and situational awareness gave me peace of mind during a high-risk period.", 
-    author: "Sarah L. - Public Figure"
-  },
-  {
-    id: 3,
-    testimonial: "The level of service from ARS Security exceeded all expectations. Their team's training and expertise is evident in every interaction.",
-    author: "Michael D. - Diplomatic Services"
-  },
-  {
-    id: 4,
-    testimonial: "ARS Security's team handled a potentially dangerous situation with incredible composure and professionalism. I couldn't recommend them more highly.",
-    author: "Emma R. - Entertainment Industry Executive"
-  },
-  {
-    id: 5,
-    testimonial: "Their attention to detail in security planning is extraordinary. They anticipate threats before they materialize, giving us true peace of mind.",
-    author: "Thomas K. - High-Profile Attorney"
-  },
-  {
-    id: 6,
-    testimonial: "We've worked with many security firms, but ARS stands apart with their blend of cutting-edge technology and elite personnel training.",
-    author: "Rebecca J. - Corporate Security Director"
-  }
-];
+import { SatisfactionCard } from "@/components/ui/satisfaction-card";
 
 export function TestimonialSection() {
-  const [positions, setPositions] = useState([
-    "front", "middle", "back", "hidden", "hidden", "hidden"
-  ] as Array<"front" | "middle" | "back" | "hidden">);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  const testimonials = [
+    {
+      id: 1,
+      text: "ARS Security provided exceptional protection for our high-profile event. Their professionalism and attention to detail were outstanding.",
+      author: "Sarah Johnson, Event Coordinator"
+    },
+    {
+      id: 2,
+      text: "I've worked with many security firms, but ARS stands out for their reliability and discreet service. They make me feel safe without being intrusive.",
+      author: "Michael Chen, CEO"
+    },
+    {
+      id: 3,
+      text: "The team at ARS Security went above and beyond to ensure my family's safety. Their 24/7 monitoring gave us peace of mind during a difficult time.",
+      author: "Robert Williams, Business Executive"
+    },
+    {
+      id: 4,
+      text: "Impeccable service and highly trained personnel. ARS Security has been protecting our corporate headquarters for years, and we couldn't be more satisfied.",
+      author: "Jennifer Lopez, Head of Operations"
+    },
+    {
+      id: 5,
+      text: "When it comes to VIP protection, ARS is simply the best. Their team anticipated potential security issues before they became problems.",
+      author: "David Thompson, Celebrity Manager"
+    },
+    {
+      id: 6,
+      text: "ARS Security customized a protection plan that perfectly addressed our unique needs. Their expertise and professionalism are unmatched.",
+      author: "Amanda Peterson, Estate Manager"
+    }
+  ];
 
   const handleShuffle = () => {
-    const newPositions = [...positions];
-    // Move positions forward, cycling the last visible one to hidden
-    // and bringing one hidden card to the visible position
-    newPositions.unshift(newPositions.pop() as "front" | "middle" | "back" | "hidden");
-    setPositions(newPositions);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  };
+
+  const getPosition = (index: number): "front" | "middle" | "back" | "hidden" => {
+    const position = (index - currentIndex) % testimonials.length;
+    if (position < 0) return "hidden";
+    if (position === 0) return "front";
+    if (position === 1) return "middle";
+    if (position === 2) return "back";
+    return "hidden";
   };
 
   return (
-    <section className="w-full py-24 md:py-32 px-4 relative overflow-hidden bg-gradient-to-b from-black/90 to-black/40">
-      {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-20">
-        <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-amber-500/20 blur-3xl"></div>
-        <div className="absolute top-1/2 -right-24 w-72 h-72 rounded-full bg-amber-600/20 blur-3xl"></div>
-        <div className="absolute -bottom-24 left-1/3 w-80 h-80 rounded-full bg-amber-400/10 blur-3xl"></div>
-      </div>
-      
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="max-w-7xl mx-auto text-center mb-20 relative z-10"
-      >
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <motion.div 
-            initial={{ rotate: -15, scale: 0.9 }}
-            animate={{ rotate: 0, scale: 1 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Quote className="h-9 w-9 text-amber-500" strokeWidth={1.5} />
-          </motion.div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-300 to-amber-600">
-            Client Testimonials
-          </h2>
-        </div>
-        <p className="mt-4 text-lg text-amber-100/80 max-w-2xl mx-auto">
-          Trusted by executives, public figures, and VIPs worldwide for discreet and professional security services.
-          <span className="block mt-2 text-sm text-amber-100/60">Swipe or drag the cards to see more testimonials from our satisfied clients.</span>
-        </p>
-      </motion.div>
-      
+    <section className="w-full py-20 px-4 bg-black/10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center items-center"
-        >
+        <div className="text-center mb-16">
+          <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full mb-6 tracking-wider">TESTIMONIALS</span>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
+            What Our <span className="text-gradient-gold">Clients</span> Say
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Hear from the individuals and organizations who trust ARS Security with their protection needs.
+          </p>
+        </div>
+        
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-10 mt-12">
           <div className="relative h-[450px] w-[350px]">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard
                 key={testimonial.id}
-                {...testimonial}
+                testimonial={testimonial.text}
+                author={testimonial.author}
+                id={testimonial.id}
+                position={getPosition(index)}
                 handleShuffle={handleShuffle}
-                position={positions[index]}
               />
             ))}
+            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-sm text-center mt-4 text-muted-foreground">
+              <p>Swipe left to see more testimonials</p>
+            </div>
           </div>
-        </motion.div>
+          
+          <div className="mt-20 lg:mt-0">
+            <SatisfactionCard />
+          </div>
+        </div>
       </div>
     </section>
   );
