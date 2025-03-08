@@ -10,10 +10,10 @@ export function Navbar() {
   const [isMobile, setIsMobile] = useState(false)
 
   const navItems = [
-    { name: 'Home', url: '#', icon: Home },
-    { name: 'Services', url: '#', icon: FileText },
-    { name: 'About', url: '#', icon: User },
-    { name: 'Testimonials', url: '#', icon: Shield }
+    { name: 'Home', url: '#home', icon: Home },
+    { name: 'Services', url: '#services', icon: FileText },
+    { name: 'About', url: '#about', icon: User },
+    { name: 'Testimonials', url: '#testimonials', icon: Shield }
   ]
 
   useEffect(() => {
@@ -24,6 +24,24 @@ export function Navbar() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const handleNavClick = (itemName: string, itemUrl: string) => {
+    setActiveTab(itemName);
+    
+    // Find the section element and scroll to it smoothly
+    const section = document.querySelector(itemUrl);
+    if (section) {
+      // Add offset for fixed header
+      const offset = 80;
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <div className="fixed top-0 left-0 right-0 z-40 px-4 py-4 backdrop-blur-md bg-black/90 border-b border-amber-500/20">
@@ -48,7 +66,7 @@ export function Navbar() {
                   "relative rounded-full px-4 py-2 text-amber-200/70 hover:text-amber-200 transition-colors",
                   isActive && "text-amber-400"
                 )}
-                onClick={() => setActiveTab(item.name)}
+                onClick={() => handleNavClick(item.name, item.url)}
               >
                 <span className="flex items-center gap-2">
                   <item.icon className="h-4 w-4" />
@@ -91,7 +109,7 @@ export function Navbar() {
                     "relative flex flex-col items-center gap-1 py-1 px-3 rounded-md",
                     isActive ? "text-amber-400" : "text-amber-200/70"
                   )}
-                  onClick={() => setActiveTab(item.name)}
+                  onClick={() => handleNavClick(item.name, item.url)}
                 >
                   <item.icon className={cn(
                     "h-5 w-5 transition-all",

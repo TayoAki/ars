@@ -13,11 +13,22 @@ const Index = () => {
       <Navbar />
       
       <main>
-        <HeroSectionElite />
-        <TestimonialSection />
-        <FeaturesSectionWithHoverEffects />
-        <RobotScene />
-        <FeaturesList />
+        <section id="home">
+          <HeroSectionElite />
+        </section>
+        
+        <section id="testimonials">
+          <TestimonialSection />
+        </section>
+        
+        <section id="services">
+          <FeaturesSectionWithHoverEffects />
+        </section>
+        
+        <section id="about">
+          <RobotScene />
+          <FeaturesList />
+        </section>
       </main>
       
       <footer className="border-t border-amber-500/20 py-8 px-4">
