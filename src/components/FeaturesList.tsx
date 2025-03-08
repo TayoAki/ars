@@ -73,7 +73,7 @@ export function FeaturesList() {
           <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="gold" />
           
           <div className="flex flex-col md:flex-row h-full">
-            <div className="w-full p-8 md:p-10 relative z-10 flex flex-col justify-center">
+            <div className="w-full p-8 md:p-10 lg:p-12 relative z-10 flex flex-col justify-center backdrop-blur-sm bg-black/50 rounded-lg border-l border-amber-500/10">
               <div className="flex items-center gap-3 mb-6">
                 <div className="bg-amber-500/20 p-2.5 rounded-full">
                   <Shield className="h-6 w-6 text-amber-500" />
