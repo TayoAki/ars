@@ -6,6 +6,7 @@ import { RobotScene } from "@/components/RobotScene"
 import { FeaturesList } from "@/components/FeaturesList"
 import { FeaturesSectionWithHoverEffects } from "@/components/ui/FeaturesSectionWithHoverEffects"
 import { EliteProtectionText } from "@/components/EliteProtectionText"
+import { HeroSectionDemo } from "@/components/ui/hero-section"
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       
       <main>
         <EliteProtectionText />
+        <HeroSectionDemo />
         <TestimonialSection />
         <FeaturesSectionWithHoverEffects />
         <FeaturesList />

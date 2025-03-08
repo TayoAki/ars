@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -101,6 +102,42 @@
   
   .text-gradient-gold {
     @apply bg-gradient-to-b from-amber-300 via-yellow-500 to-amber-600 bg-clip-text text-transparent;
+  }
+
+  /* Animation utilities for the hero section */
+  .fade-bottom {
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  }
+  
+  .animate-appear {
+    animation: appear 0.7s forwards;
+  }
+  
+  .animate-appear-zoom {
+    animation: appearZoom 1s forwards;
+  }
+  
+  @keyframes appear {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes appearZoom {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 }
 
