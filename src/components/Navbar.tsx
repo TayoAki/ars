@@ -43,6 +43,21 @@ export function Navbar() {
     }
   };
 
+  const scrollToForm = () => {
+    // Find the form section and scroll to it
+    const formSection = document.querySelector("#contact-form");
+    if (formSection) {
+      const offset = 80;
+      const elementPosition = formSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="fixed top-0 left-0 right-0 z-40 px-4 py-4 backdrop-blur-md bg-black/90 border-b border-amber-500/20">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -89,7 +104,11 @@ export function Navbar() {
         </nav>
         
         <div className="hidden md:block">
-          <Button size="sm" className="rounded-full bg-amber-500 text-black hover:bg-amber-400">
+          <Button 
+            size="sm" 
+            className="rounded-full bg-amber-500 text-black hover:bg-amber-400"
+            onClick={scrollToForm}
+          >
             Get a Quote
           </Button>
         </div>
