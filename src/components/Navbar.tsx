@@ -77,13 +77,10 @@ export function Navbar() {
         </div>
       </div>
       
-      {/* Mobile Navigation - Horizontal Scroll */}
-      <div className="md:hidden fixed bottom-4 left-0 right-0 z-50 px-4">
-        <div className="relative mx-auto max-w-[350px]">
-          <div className={cn(
-            "flex p-3 overflow-x-auto scrollbar-none bg-black/90 backdrop-blur-lg rounded-xl",
-            "border border-amber-500/30 shadow-lg"
-          )}>
+      {/* Mobile Navigation - Bottom Dock */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50">
+        <div className="relative">
+          <div className="flex items-center justify-evenly bg-black border-t border-amber-500/30 px-2 py-3">
             {navItems.map((item) => {
               const isActive = activeTab === item.name;
               
@@ -91,20 +88,21 @@ export function Navbar() {
                 <button
                   key={item.name}
                   className={cn(
-                    "relative flex-shrink-0 rounded-lg p-2 mx-1.5 text-amber-200/70 hover:text-amber-200 transition-colors",
-                    isActive && "text-amber-400"
+                    "relative flex flex-col items-center gap-1 py-1 px-3 rounded-md",
+                    isActive ? "text-amber-400" : "text-amber-200/70"
                   )}
                   onClick={() => setActiveTab(item.name)}
                 >
-                  <span className="flex flex-col items-center gap-1.5 w-16">
-                    <item.icon className="h-5 w-5" />
-                    <span className="text-xs font-medium whitespace-nowrap">{item.name}</span>
-                  </span>
+                  <item.icon className={cn(
+                    "h-5 w-5 transition-all",
+                    isActive ? "scale-110" : ""
+                  )} />
+                  <span className="text-xs font-medium">{item.name}</span>
                   
                   {isActive && (
                     <motion.div
-                      layoutId="mobileNavbarGlow"
-                      className="absolute inset-0 rounded-lg bg-amber-400/10"
+                      layoutId="mobileNavIndicator"
+                      className="absolute bottom-0 h-0.5 w-10 bg-amber-400"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
@@ -115,9 +113,6 @@ export function Navbar() {
               );
             })}
           </div>
-          
-          {/* Glow Effect */}
-          <div className="absolute inset-0 rounded-xl blur-xl bg-amber-400/20 -z-10" />
         </div>
       </div>
     </div>
