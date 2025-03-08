@@ -73,36 +73,75 @@ export function FeaturesList() {
           <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="gold" />
           
           <div className="flex flex-col md:flex-row h-full">
-            <div className="flex-1 p-8 relative z-10 flex flex-col justify-center max-w-2xl mx-auto">
-              <div className="flex items-center gap-2 mb-4">
-                <Shield className="h-6 w-6 text-amber-500" />
+            <div className="w-full p-8 md:p-10 relative z-10 flex flex-col justify-center">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-amber-500/20 p-2.5 rounded-full">
+                  <Shield className="h-6 w-6 text-amber-500" />
+                </div>
                 <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-amber-300 to-amber-600">
                   Get Protected Today
                 </h2>
               </div>
-              <p className="mt-2 text-amber-100/80 max-w-lg mb-6">
+              
+              <p className="mt-2 text-amber-100/80 max-w-xl mb-8 text-base md:text-lg">
                 Request a free consultation with our security experts. Fill out the form and we'll contact you within 24 hours.
               </p>
               
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-amber-500/60" />
-                  <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Full Name" required className="w-full pl-10 pr-4 py-3 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-1 focus:ring-amber-500" />
+              <form onSubmit={handleSubmit} className="space-y-5 max-w-xl">
+                <div className="relative group">
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-amber-500/60 transition-all group-hover:text-amber-500/90" />
+                  <input 
+                    type="text" 
+                    name="name" 
+                    value={formData.name} 
+                    onChange={handleChange} 
+                    placeholder="Full Name" 
+                    required 
+                    className="w-full pl-10 pr-4 py-3.5 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all" 
+                  />
                 </div>
                 
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-amber-500/60" />
-                  <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email Address" required className="w-full pl-10 pr-4 py-3 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-1 focus:ring-amber-500" />
+                <div className="relative group">
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-amber-500/60 transition-all group-hover:text-amber-500/90" />
+                  <input 
+                    type="email" 
+                    name="email" 
+                    value={formData.email} 
+                    onChange={handleChange} 
+                    placeholder="Email Address" 
+                    required 
+                    className="w-full pl-10 pr-4 py-3.5 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all" 
+                  />
                 </div>
                 
-                <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-amber-500/60" />
-                  <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone Number" className="w-full pl-10 pr-4 py-3 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-1 focus:ring-amber-500" />
+                <div className="relative group">
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-amber-500/60 transition-all group-hover:text-amber-500/90" />
+                  <input 
+                    type="tel" 
+                    name="phone" 
+                    value={formData.phone} 
+                    onChange={handleChange} 
+                    placeholder="Phone Number" 
+                    className="w-full pl-10 pr-4 py-3.5 bg-amber-950/30 border border-amber-500/20 rounded-lg text-amber-100 placeholder:text-amber-500/40 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all" 
+                  />
                 </div>
                 
-                <Button type="submit" disabled={isSubmitting} className="w-full bg-amber-500 text-black hover:bg-amber-400 font-medium py-6 rounded-lg transition-all duration-200 flex items-center justify-center">
-                  {isSubmitting ? <span className="loader mr-2"></span> : <ArrowRight className="mr-2 h-5 w-5" />}
-                  {isSubmitting ? "Processing..." : "Request Consultation"}
+                <Button 
+                  type="submit" 
+                  disabled={isSubmitting} 
+                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-black hover:from-amber-400 hover:to-amber-500 font-medium py-6 rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/20 flex items-center justify-center mt-8"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <span className="loader mr-2"></span>
+                      <span>Processing...</span>
+                    </>
+                  ) : (
+                    <>
+                      <ArrowRight className="mr-2 h-5 w-5" />
+                      <span>Request Consultation</span>
+                    </>
+                  )}
                 </Button>
               </form>
             </div>
