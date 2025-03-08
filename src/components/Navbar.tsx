@@ -26,7 +26,7 @@ export function Navbar() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-40 px-4 py-4 backdrop-blur-md bg-background/60 border-b border-amber-500/20">
+    <div className="fixed top-0 left-0 right-0 z-40 px-4 py-4 backdrop-blur-md bg-black/90 border-b border-amber-500/20">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-2">
           <img 
