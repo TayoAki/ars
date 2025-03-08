@@ -77,12 +77,12 @@ export function Navbar() {
         </div>
       </div>
       
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - Two Rows */}
       <div className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
         <div className="relative">
           <div className={cn(
-            "flex p-2 gap-4 bg-black/80 backdrop-blur-lg rounded-full",
-            "border border-amber-500/30 shadow-lg"
+            "grid grid-cols-2 p-3 gap-3 bg-black/90 backdrop-blur-lg rounded-xl",
+            "border border-amber-500/30 shadow-lg w-[180px]"
           )}>
             {navItems.map((item) => {
               const isActive = activeTab === item.name;
@@ -91,12 +91,12 @@ export function Navbar() {
                 <button
                   key={item.name}
                   className={cn(
-                    "relative rounded-full p-2.5 text-amber-200/70 hover:text-amber-200 transition-colors",
+                    "relative rounded-lg p-2 text-amber-200/70 hover:text-amber-200 transition-colors",
                     isActive && "text-amber-400"
                   )}
                   onClick={() => setActiveTab(item.name)}
                 >
-                  <span className="flex flex-col items-center gap-1">
+                  <span className="flex flex-col items-center gap-1.5">
                     <item.icon className="h-5 w-5" />
                     <span className="text-xs font-medium">{item.name}</span>
                   </span>
@@ -104,7 +104,7 @@ export function Navbar() {
                   {isActive && (
                     <motion.div
                       layoutId="mobileNavbarGlow"
-                      className="absolute inset-0 rounded-full bg-amber-400/10"
+                      className="absolute inset-0 rounded-lg bg-amber-400/10"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
@@ -117,7 +117,7 @@ export function Navbar() {
           </div>
           
           {/* Glow Effect */}
-          <div className="absolute inset-0 rounded-full blur-xl bg-amber-400/20 -z-10" />
+          <div className="absolute inset-0 rounded-xl blur-xl bg-amber-400/20 -z-10" />
         </div>
       </div>
     </div>
