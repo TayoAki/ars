@@ -66,7 +66,7 @@ export function TestimonialSection() {
           </p>
         </div>
         
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-10 mt-12">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-16 mt-16">
           <div className="relative h-[450px] w-[350px]">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard
@@ -83,7 +83,7 @@ export function TestimonialSection() {
             </div>
           </div>
           
-          <div className="mt-20 lg:mt-0">
+          <div className="mt-16 lg:mt-0">
             <SatisfactionCard />
           </div>
         </div>

@@ -13,7 +13,7 @@ export function SatisfactionCard() {
       transition={{ duration: 0.6 }}
       className="h-[450px] w-[350px] rounded-2xl border-2 border-amber-500/30 bg-black/[0.85] p-8 shadow-gold backdrop-blur-md flex flex-col"
     >
-      <h3 className="text-center text-2xl font-bold text-gradient-gold mb-4">
+      <h3 className="text-center text-2xl font-bold text-gradient-gold mb-6">
         100% Client Satisfaction
       </h3>
       
