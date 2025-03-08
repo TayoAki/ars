@@ -15,8 +15,10 @@ const Index = () => {
       <Navbar />
       
       <main>
-        <EliteProtectionText />
-        <HeroSectionEnhancedDemo />
+        <div className="relative">
+          <EliteProtectionText />
+          <HeroSectionEnhancedDemo />
+        </div>
         <TestimonialSection />
         <FeaturesSectionWithHoverEffects />
         <FeaturesList />
