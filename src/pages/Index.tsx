@@ -1,10 +1,11 @@
+
 import { motion } from "framer-motion"
 import { Navbar } from "@/components/Navbar"
 import { TestimonialSection } from "@/components/TestimonialSection"
 import { RobotScene } from "@/components/RobotScene"
 import { FeaturesList } from "@/components/FeaturesList"
 import { FeaturesSectionWithHoverEffects } from "@/components/ui/FeaturesSectionWithHoverEffects"
-import { HeroSectionEnhancedDemo } from "@/components/ui/hero-section-enhanced"
+import { HeroSectionElite } from "@/components/ui/hero-section-enhanced"
 
 const Index = () => {
   return (
@@ -12,7 +13,7 @@ const Index = () => {
       <Navbar />
       
       <main>
-        <HeroSectionEnhancedDemo />
+        <HeroSectionElite />
         <TestimonialSection />
         <FeaturesSectionWithHoverEffects />
         <FeaturesList />
